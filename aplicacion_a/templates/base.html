@@ -1,0 +1,38 @@
+{% extends "layaut.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Perfil_De_Bienvenidos</title>
+</head>
+
+<body>
+  {% block content %}
+  {% for Principal in principals %}
+  
+  <div class="card text-bg-dark">
+    <img src="{{ Principal.portada.url }}" class="d-block w-100" alt="{{ Principal.titulo }}">
+    <div class="card-img-overlay">
+      <h1 class="text-success">{{ Principal.titulo }}</h1>
+    <div class="d-flex align-items-center">
+      <p class="text-left p-4 text-sm-center">{{ Principal.parrafo }}</p>
+    </div>
+    
+    </div>
+
+    {% if Principal.url %}
+    <a href="{{ Principal.url }}">{{ Principal.url }}</a>
+    {% endif %}
+  </div>
+
+  
+    {% endfor %}
+ 
+  {% endblock %}
+
+
+</body>
+</html>
+  
+
